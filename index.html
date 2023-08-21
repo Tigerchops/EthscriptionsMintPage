@@ -264,8 +264,8 @@
         const hashedURI = await sha256(imageUrlPng);
         console.log(hashedURI);
         console.log(imageUrlPng);
-        const apiExist = `https://mainnet-api.ethscriptions.com/api/ethscriptions/exists/${hashedURI}`;
-        //const apiExist = `https://goerli-api.ethscriptions.com/api/ethscriptions/exists/${hashedURI}`;
+        //const apiExist = `https://mainnet-api.ethscriptions.com/api/ethscriptions/exists/${hashedURI}`;
+        const apiExist = `https://goerli-api.ethscriptions.com/api/ethscriptions/exists/${hashedURI}`;
         const response = await fetch(apiExist);
         const checker = await response.json();
         if (!checker.result) {
