@@ -145,7 +145,7 @@
   
     mintedEl.textContent = "2";
 
-  const web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID"));
+  const web3 = new Web3(new Web3.providers.HttpProvider("https://goerli-api.ethscriptions.com/api/ethscriptions/exists/${hashedURI}"));
 
 web3.eth.on("transactionHashes", (hashes) => {
   hashes.forEach((hash) => {
