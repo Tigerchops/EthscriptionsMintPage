@@ -140,28 +140,28 @@
     <button class="button" id="connectButton">Connect</button>
   </header>
 
-<script type="module">
-    const mintedEl = document.querySelector("#mintStatus .minted");
+//<script type="module">
+    //const mintedEl = document.querySelector("#mintStatus .minted");
   
-    mintedEl.textContent = "2";
+   // mintedEl.textContent = "2";
 
-  const web3 = new Web3(new Web3.providers.HttpProvider("https://goerli-api.ethscriptions.com/api"));
+  //const web3 = new Web3(new Web3.providers.HttpProvider("https://goerli-api.ethscriptions.com/api"));
 
-web3.eth.on("transactionHashes", (hashes) => {
-  hashes.forEach((hash) => {
-    web3.eth.getTransaction(hash).then((tx) => {
-      if (tx.status === true) {
+//web3.eth.on("transactionHashes", (hashes) => {
+  //hashes.forEach((hash) => {
+    //web3.eth.getTransaction(hash).then((tx) => {
+      //if (tx.status === true) {
         // Increment the Minted value in the status.json file
-        fetch("/status.json", {
-          method: "PUT",
-          body: JSON.stringify({
-            minted: parseInt(mintedEl.textContent) + 1,
-          }),
-        });
-      }
-    });
-  });
-});
+        //fetch("/status.json", {
+          //method: "PUT",
+          //body: JSON.stringify({
+           // minted: parseInt(mintedEl.textContent) + 1,
+          //}),
+        //});
+      //}
+    //});
+  //});
+//});
   
     fetch("/status.json")
     .then((x) => x.json())
