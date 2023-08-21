@@ -144,6 +144,25 @@
     const mintedEl = document.querySelector("#mintStatus .minted");
   
     mintedEl.textContent = "0";
+
+  const web3 = new Web3(new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID"));
+
+web3.eth.on("transactionHashes", (hashes) => {
+  hashes.forEach((hash) => {
+    web3.eth.getTransaction(hash).then((tx) => {
+      if (tx.status === true) {
+        // Increment the Minted value in the status.json file
+        fetch("/status.json", {
+          method: "PUT",
+          body: JSON.stringify({
+            minted: parseInt(mintedEl.textContent) + 1,
+          }),
+        });
+      }
+    });
+  });
+});
+  
     fetch("/status.json")
     .then((x) => x.json())
     .then((x) => {
