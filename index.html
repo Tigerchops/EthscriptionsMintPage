@@ -123,6 +123,10 @@
     h1 {
       font-size: 60px;
     }
+
+    h4 {
+      text-align: center;
+    }
   </style>
   <title>Image Gallery</title>
 </head>
@@ -135,6 +139,21 @@
     <h1>Georli Test - Scribed-Bricks</h1>
     <button class="button" id="connectButton">Connect</button>
   </header>
+
+<script>
+    const mintedEl = document.querySelector("#mintStatus .minted");
+  
+    mintedEl.textContent = "0";
+    fetch("/status.json")
+    .then((x) => x.json())
+    .then((x) => {
+      mintedEl.textContent = x.minted;
+    });
+  </script>
+
+  <h4>
+      <strong id="mintStatus"><span class="minted"></span> / 5,000</strong></h4>
+  
   <div class='container' id='container'>
     <div class="image-grid" id="imageGrid"></div>
   </div>
