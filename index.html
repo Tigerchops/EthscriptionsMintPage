@@ -159,6 +159,7 @@
     const loadMoreButton = document.getElementById('loadMoreButton');
     const batchSize = 49; // Number of images to load at once
     let currentIndex = 1; // Starting index for images
+    //let existingMessageCount = 0; //Mint counter
     const loadImageBatch = async () => {
       for (let i = currentIndex; i <= Math.min(currentIndex + batchSize, 5000); i++) {
         //const imageUrl = `https://raw.githubusercontent.com/Tigerchops/Scribed-Bricks/e6f290077c1c01ebd057b5c3c8f05d74d499fb80/images/${i}.png`;
@@ -241,7 +242,7 @@
         console.log('Connection error:', error);
       });
     const randomizeStartingIndex = () => {
-      currentIndex = Math.floor(Math.random() * (6969 - batchSize)); // Generate a random index within the range
+      currentIndex = Math.floor(Math.random() * (5000 - batchSize)); // Generate a random index within the range
        // Clear existing images
       loadImageBatch(); // Load images with the new starting index
     };
