@@ -95,7 +95,7 @@
 
     .red-x {
       display: none;
-      font-size: 200px;
+      font-size: 150px;
       color: red;
       position: fixed;
       top: 0;
@@ -175,7 +175,7 @@
         image.onload = async () => {
         const data = await checkImageExists(imageUrl);
         if (data.result) {
-          image.style.filter = 'brightness(0.3)'; // Darken the image
+          image.style.filter = 'brightness(0.2)'; // Darken the image
         }
         };
         image.src = imageUrl;
